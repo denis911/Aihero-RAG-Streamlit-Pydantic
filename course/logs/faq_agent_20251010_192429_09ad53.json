@@ -1,0 +1,142 @@
+{
+  "agent_name": "faq_agent",
+  "system_prompt": [
+    "\nYou are a helpful assistant for a  course. \n\nUse the search tool to find relevant information from the course materials before answering questions.\n\nIf you can find specific information through search, use it to provide accurate answers.\nIf the search doesn't return relevant results, let the user know and provide general guidance.\n"
+  ],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "text_search"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "how do I use docker on windows?",
+          "timestamp": "2025-10-10T19:24:26.768295+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": "You are a helpful assistant for a  course. \n\nUse the search tool to find relevant information from the course materials before answering questions.\n\nIf you can find specific information through search, use it to provide accurate answers.\nIf the search doesn't return relevant results, let the user know and provide general guidance.",
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "args": "{\"query\":\"how to use docker on windows\"}",
+          "tool_call_id": "call_lE0Ol6ICjj3HhKCNtSWKRSME",
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 159,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 19,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2025-10-10T19:24:27+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-CPD11XnxBT2k9baOUdvRgksLtmZYO",
+      "finish_reason": "tool_call"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "text_search",
+          "content": [
+            {
+              "id": "46dbe4810d",
+              "question": "Docker - error during connect: In the default daemon configuration on Windows, the docker client must be run with elevated privileges",
+              "sort_order": 11,
+              "content": "If you get this error:\n\n```\ndocker: error during connect: In the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect.: Post \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/containers/create\": open //./pipe/docker_engine: The system cannot find the file specified.\nSee 'docker run --help'.\n```\n\nTo resolve it on Windows, follow these guidelines based on your version:\n\n**Windows 10 Pro / 11 Pro Users**:\n\n* Ensure Hyper-V is enabled, as Docker can use it as a backend.\n* Follow the [Enable Hyper-V Option on Windows 10 / 11](https://www.c-sharpcorner.com/article/install-and-configured-docker-desktop-in-windows-10/) tutorial.\n\n**Windows 10 Home / 11 Home Users**:\n\n* The 'Home' version doesn't support Hyper-V, so use WSL2 (Windows Subsystem for Linux).\n* Refer to [install WSL on Windows 11](https://pureinfotech.com/install-wsl-windows-11/) for detailed instructions.\n\nIf you encounter the \"WslRegisterDistribution failed with error: 0x800701bc\" error:\n\n- Update the WSL2 Linux Kernel by following the guidelines at [GitHub: WSL Issue 5393](https://github.com/microsoft/WSL/issues/5393).",
+              "filename": "faq-main/_questions/data-engineering-zoomcamp/module-1/011_46dbe4810d_docker-error-during-connect-in-the-default-daemon.md"
+            },
+            {
+              "id": "3549528659",
+              "question": "Docker: Docker won't start or is stuck in settings (Windows 10 / 11)",
+              "sort_order": 15,
+              "content": "Ensure you are running the latest version of Docker for Windows. Download the updated version from [Docker's official site](https://docs.docker.com/desktop/install/windows-install/). If the upgrade option in the menu doesn't work, uninstall and reinstall with the latest version.\n\nIf Docker is stuck on starting, try switching the containers by right-clicking the [docker symbol](https://imgur.com/vsVUAzK) from the running programs, and switch the containers from Windows to Linux or vice versa.\n\nFor Windows 10 / 11 Pro Edition:\n\n- **Hyper-V Backend:** ensure Hyper-V is enabled by following this [tutorial](https://www.c-sharpcorner.com/article/install-and-configured-docker-desktop-in-windows-10/).\n- **WSL2 Backend:** follow the steps detailed in this [tutorial](https://pureinfotech.com/install-wsl-windows-11/).",
+              "filename": "faq-main/_questions/data-engineering-zoomcamp/module-1/015_docker-docker-wont-start-or.md"
+            },
+            {
+              "id": "b2eabcd7dc",
+              "question": "Docker: Setting up Docker on Mac",
+              "sort_order": 20,
+              "content": "For setting up Docker on macOS, you have two main options:\n\n1. **Download from Docker Website:**\n   - Visit the official Docker website and download the Docker Desktop for Mac as a `.dmg` file. This method is generally reliable and avoids issues related to licensing changes.\n\n2. **Using Homebrew:**\n   - Be aware that there can be conflicts when installing with Homebrew, especially between Docker Desktop and command-line tools. To avoid issues:\n     \n     - Install Docker Desktop first.\n     - Then install the command line tools.\n\n   - Commands:\n     \n     ```bash\n     brew install --cask docker\n     ```\n     \n     ```bash\n     brew install docker docker-compose\n     ```\n\n   - For more detailed issues related to `brew install`, refer to this [Issue](https://github.com/Homebrew/brew/issues/16309). \n\nFor more details, you can check the article on [Setting up Docker in macOS](https://medium.com/@vivekslair/setting-up-docker-in-macos-ee36d37b3be2).",
+              "filename": "faq-main/_questions/data-engineering-zoomcamp/module-1/020_b2eabcd7dc_docker-setting-up-docker-on-mac.md"
+            },
+            {
+              "id": "9e05e54958",
+              "question": "Docker: How to stop a container?",
+              "sort_order": 34,
+              "content": "Use the following command:\n\n```bash\ndocker stop <container_id>\n```",
+              "filename": "faq-main/_questions/data-engineering-zoomcamp/module-1/034_9e05e54958_docker-how-to-stop-a-container.md"
+            },
+            {
+              "id": "4ccef7c92d",
+              "question": "Docker-Compose: Which docker-compose binary to use for WSL?",
+              "sort_order": 50,
+              "content": "To determine which `docker-compose` binary to download from [Docker Compose releases](https://github.com/docker/compose/releases), you can check your system with the following commands:\n\n- To check the system type:\n\n  ```bash\n  uname -s  # This will most likely return 'Linux'\n  ```\n\n- To check the system architecture:\n\n  ```bash\n  uname -m  # This will return your system's 'flavor'\n  ```\n\nAlternatively, you can use the following command to download `docker-compose` directly:\n\n```bash\nsudo curl -L \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose\n```",
+              "filename": "faq-main/_questions/data-engineering-zoomcamp/module-1/050_4ccef7c92d_docker-compose-which-docker-compose-binary-to-use.md"
+            }
+          ],
+          "tool_call_id": "call_lE0Ol6ICjj3HhKCNtSWKRSME",
+          "metadata": null,
+          "timestamp": "2025-10-10T19:24:28.797808+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": "You are a helpful assistant for a  course. \n\nUse the search tool to find relevant information from the course materials before answering questions.\n\nIf you can find specific information through search, use it to provide accurate answers.\nIf the search doesn't return relevant results, let the user know and provide general guidance.",
+      "kind": "request"
+    },
+    {
+      "parts": [
+        {
+          "content": "To use Docker on Windows, follow these steps based on your version of Windows:\n\n### For Windows 10 Pro / 11 Pro Users:\n1. **Enable Hyper-V**: Docker uses Hyper-V as its backend. You need to ensure that Hyper-V is enabled on your system. You can follow a tutorial to enable Hyper-V on Windows 10/11, such as [this one](https://www.c-sharpcorner.com/article/install-and-configured-docker-desktop-in-windows-10/).\n2. **Install Docker Desktop**: Download Docker Desktop from the [official Docker website](https://docs.docker.com/desktop/install/windows-install/) and install it.\n3. **Running Docker**: After installation, run Docker Desktop.\n\n### For Windows 10 Home / 11 Home Users:\n1. **Use WSL2**: The 'Home' version does not support Hyper-V, so you need to use the Windows Subsystem for Linux (WSL2). Follow the instructions to [install WSL on Windows 11](https://pureinfotech.com/install-wsl-windows-11/).\n2. **Install Docker Desktop**: Download Docker Desktop from the [official Docker website](https://docs.docker.com/desktop/install/windows-install/) and during the installation, ensure that the WSL2 backend is selected.\n\n### Troubleshooting:\n- If you encounter an error like `docker: error during connect: In the default daemon configuration on Windows...`, it may be due to insufficient privileges. Ensure you are running the Docker client with elevated privileges (Run as Administrator).\n- If Docker is stuck on starting, you can try switching between Windows and Linux containers by right-clicking the Docker symbol in the system tray.\n\n### Keeping Docker Updated:\nMake sure you are using the latest version of Docker. You can download the latest version from the [Docker's official site](https://docs.docker.com/desktop/install/windows-install/). If you're having issues with the upgrade, uninstall and reinstall Docker.\n\nFor more details, refer to your specific version's documentation or check Docker's official [installation guide for Windows](https://docs.docker.com/desktop/install/windows-install/).",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1470,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 444,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2025-10-10T19:24:29+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-CPD13mBwZhLfzY8UvfNQlv7mnhWf2",
+      "finish_reason": "stop"
+    }
+  ],
+  "source": "user"
+}
