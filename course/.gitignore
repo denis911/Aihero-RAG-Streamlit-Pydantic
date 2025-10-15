@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Project-specific folders to ignore
+course/.ipynb_checkpoints/
+course/logs/
