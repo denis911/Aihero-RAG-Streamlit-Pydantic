@@ -10,5 +10,7 @@ wheels/
 .venv
 
 # Project-specific folders to ignore
-course/.ipynb_checkpoints/
-course/logs/
+**/.ipynb_checkpoints/
+**/logs/
+**.ipynb_checkpoints/
+**logs/
