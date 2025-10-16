@@ -4,6 +4,14 @@ import logs
 
 import asyncio
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # this loads .env automatically
+
+api_key = os.getenv("OPENAI_API_KEY")
+print(f"Using OpenAI key: {api_key[:8]}...")  # test (don’t print full key!)
+
 
 REPO_OWNER = "DataTalksClub"
 REPO_NAME = "faq"
@@ -50,4 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+
