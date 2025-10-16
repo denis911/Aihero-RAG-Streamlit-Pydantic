@@ -171,6 +171,7 @@ dependencies = [
     { name = "minsearch" },
     { name = "openai" },
     { name = "pydantic-ai" },
+    { name = "python-dotenv" },
     { name = "python-frontmatter" },
     { name = "requests" },
 ]
@@ -180,6 +181,7 @@ requires-dist = [
     { name = "minsearch", specifier = ">=0.0.5" },
     { name = "openai", specifier = ">=1.108.2" },
     { name = "pydantic-ai", specifier = "==1.0.9" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "python-frontmatter", specifier = ">=1.1.0" },
     { name = "requests", specifier = ">=2.32.5" },
 ]
