@@ -5,6 +5,16 @@ import ingest
 import search_agent
 import logs
 
+# to run it use << uv run streamlit run app.py >> command in the terminal
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # this loads .env automatically
+
+api_key = os.getenv("OPENAI_API_KEY")
+print(f"Using OpenAI key: {api_key[:8]}...")  # test (don’t print full key!)
+
 
 # --- Initialization ---
 @st.cache_resource
